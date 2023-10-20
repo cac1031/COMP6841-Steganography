@@ -1,0 +1,158 @@
+@keyframes bg-animate {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+:root {
+    --colour-primary-bg: #CCFFE0;
+    --colour-secondary-bg: #FFBCE8;
+    
+    --colour-primary-textbox: #A7F4C6;
+    --colour-secondary-textbox: #F9D6ED;
+
+    --colour-button: #A7F4C6;
+    --colour-button-selected: #f4a7e7;
+    --colour-font: black;
+
+    --colour-primary-accent: #66FFA3;
+    --colour-secondary-accent: #FF67CB;
+
+    --colour-tertiary-accent: #ff67a4;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+  
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+body {
+    overflow-x: hidden;
+    color: var(--colour-font);
+    background-image: linear-gradient(119deg, var(--colour-primary-bg) 14.16%, var(--colour-secondary-bg) 97.1%);
+    height: 100vh;
+    position: relative;
+}
+
+main {
+    display: grid;
+    grid-template-areas: 'hide unhide' 'reveal reveal';
+    gap: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: system-ui;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+/* Common Element Stylings */
+h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin: 0.25rem;
+    letter-spacing: 0.05ch;
+}
+
+button {
+    border: none;
+    border-radius: 0.4375rem;
+    background-color: var(--colour-button);
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+button:hover {
+    background-color: var(--colour-button-selected);
+    transition: ease-in 0.2s;
+}
+
+textarea {
+    border-image: linear-gradient(to bottom, var(--colour-primary-textbox), var(--colour-secondary-textbox)) 1;
+    background: #FFF;
+    border-width: 0.2rem;
+    width: 30rem;
+    height: 5rem;
+    padding: 0.75rem;
+    resize: none;
+    margin-block: 0.5rem;
+    font-size: 1.1rem;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+#revealed-message::before,
+#revealed-message::after {
+    content: "";
+    inset: 0;
+    border-radius: inherit;
+}
+
+#revealed-message::after {
+    filter: blur(3.5rem);
+}
+
+#revealed-message {
+    border-image: linear-gradient(200deg, var(--colour-primary-accent), var(--colour-secondary-accent)) 1 !important;
+    border-width: 0.25rem;
+    box-shadow: 0 0 10px 10px rgba(182, 182, 182, 0.1);
+}
+
+.text-button {
+    padding-inline: 2rem;
+    padding-block: 0.7rem;
+}
+
+.text-button-div {
+    text-align: center;
+}
+
+.icon-button {
+    width: 3rem;
+    margin-right: 0.5rem;
+}
+
+.stego-logic {
+    background-color: white;
+    border-radius: 1.25rem;
+    padding-inline: 4.5rem; /* dont change*/
+    padding-block: 2rem;
+    text-align: left;
+}
+
+.stego-logic.magic textarea {
+    width: 70rem;
+}
+
+
+#hide-section {
+    grid-area: hide;
+}
+
+#unhide-section {
+    grid-area: unhide;
+}
+
+#bts-section {
+    grid-area: reveal;
+}
+
+.clear-all {
+    background-color: var(--colour-tertiary-accent);
+    margin-top: 0.4rem;
+}
+
+.clear-all:hover {
+    background-color: var(--colour-primary-accent);
+    margin-top: 0.4rem;
+}
