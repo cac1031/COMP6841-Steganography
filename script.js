@@ -57,17 +57,30 @@ const conceal = (cover_message, secret_message) => {
 }
 
 // Main Function [Reveal]
+// const reveal = (stego_message) => {
+//   const zwc_string = stego_message.replaceAll(/[^\u200b-\u200c]/g, '');
+//   const binary_string = zwc_string.replaceAll('\u200b', '0').replaceAll('\u200c', '1');
+
+//   // console.log(binary_string);
+
+//   const block8_binaries = binary_string.match(/.{8}/g);
+//   const block8_integers = block8_binaries.map(block8 => parseInt(block8, 2).toString(16).toUpperCase());
+  
+//   const utf8_encoding_bytestream = '%' + block8_integers.join('%');
+//   return decodeURIComponent(utf8_encoding_bytestream);
+// }
+
 const reveal = (stego_message) => {
+  let decoder = new TextDecoder();
   const zwc_string = stego_message.replaceAll(/[^\u200b-\u200c]/g, '');
   const binary_string = zwc_string.replaceAll('\u200b', '0').replaceAll('\u200c', '1');
-
-  console.log(binary_string);
-
-  const block8_binaries = binary_string.match(/.{8}/g);
-  const block8_integers = block8_binaries.map(block8 => parseInt(block8, 2).toString(16).toUpperCase());
   
-  const utf8_encoding_bytestream = '%' + block8_integers.join('%');
-  return decodeURIComponent(utf8_encoding_bytestream);
+  const block8_binaries = binary_string.match(/.{8}/g);
+  
+  const block8_integers = block8_binaries.map(block8 => parseInt(block8, 2));
+  const revealed_message = decoder.decode(new Uint8Array(block8_integers));
+  console.log(revealed_message);
+  return revealed_message;
 }
 
 const coverMessage = document.getElementById("cover-message");
