@@ -65,7 +65,6 @@ const reveal = (stego_message) => {
   
   const block8_integers = block8_binaries.map(block8 => parseInt(block8, 2));
   const revealed_message = decoder.decode(new Uint8Array(block8_integers));
-  console.log(revealed_message);
   return revealed_message;
 }
 
