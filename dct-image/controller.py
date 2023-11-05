@@ -49,7 +49,7 @@ def perform_reverse_dct(ncols, embedded_blocks):
     return decompressed_y_layer
 
 
-def max_bits_for_embedding(nrows, ncols, blocks_of_eight):
+def max_bits_for_embedding(blocks_of_eight):
     '''
     Given a series of quantised blocks, find the max number of bits that can be hidden in the LSB
     '''
@@ -70,7 +70,7 @@ def do_embed(luminance_layer, secret_file_path):
 
     quantised_blocks = perform_forward_dct(luminance_layer)
 
-    max_bits = max_bits_for_embedding(luminance_layer.shape[0], luminance_layer.shape[1], quantised_blocks)
+    max_bits = max_bits_for_embedding(quantised_blocks)
     if len(secret_in_binary) > max_bits:
         raise ValueError(f'Image not large enough to hide data. Only a maximum of {max_bits} bits can be encoded.')
     
