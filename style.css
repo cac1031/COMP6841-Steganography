@@ -35,21 +35,16 @@ body {
     overflow-x: hidden;
     color: var(--colour-font);
     background-image: linear-gradient(119deg, var(--colour-primary-bg) 14.16%, var(--colour-secondary-bg) 97.1%);
+    background-attachment: fixed;
     height: 100vh;
-    position: relative;
-}
-
-main {
     display: grid;
     grid-template-areas: 'hide unhide' 'reveal reveal';
     gap: 2rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     font-family: system-ui;
     font-size: 1.25rem;
     text-align: center;
+    justify-content: center;
+    align-content: center;
 }
 
 /* Common Element Stylings */

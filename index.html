@@ -9,45 +9,42 @@
     <link rel="icon" type="image/png" href="assets/stegosaurus.png">
 </head>
 <body>
-    <main>
-        <div class="stego-element" id="hide-section">
-            <h1>Hide</h1>
-            <div class="stego-logic">
-                <form action="#">
-                    <label for="cover-message">Insert Cover Message:</label><br>
-                    <textarea id="cover-message" placeholder="Type here..."></textarea><br><br>
-                    <label for="secret-message">Insert Secret Message:</label><br>
-                    <textarea id="secret-message" placeholder="Type here..."></textarea><br><br>
-                    <div class="text-button-div"><button class="text-button" id="cover-button">Generate a Cover</button></div>
-                </form>
-            </div>
+    <div class="stego-element" id="hide-section">
+        <h1>Hide</h1>
+        <div class="stego-logic">
+            <form action="#">
+                <label for="cover-message">Insert Cover Message:</label><br>
+                <textarea id="cover-message" placeholder="Type here..."></textarea><br><br>
+                <label for="secret-message">Insert Secret Message:</label><br>
+                <textarea id="secret-message" placeholder="Type here..."></textarea><br><br>
+                <div class="text-button-div"><button class="text-button" id="cover-button">Generate a Cover</button></div>
+            </form>
         </div>
+    </div>
 
-        <div class="stego-element" id="unhide-section">
-            <h1>Unhide</h1>
-            <div class="stego-logic">
-                <label for="hidden-message">Insert Message to be Revealed:</label><br>
-                <textarea id="hidden-message"></textarea><br><br>
-                <div class="text-button-div"><button class="text-button" id="uncover-button">Reveal Hidden</button></div><br>
-                <label for="revealed-message">Your Secret Message:</label><br>
-                <textarea id="revealed-message" disabled></textarea>
-            </div>
+    <div class="stego-element" id="unhide-section">
+        <h1>Unhide</h1>
+        <div class="stego-logic">
+            <label for="hidden-message">Insert Message to be Revealed:</label><br>
+            <textarea id="hidden-message"></textarea><br><br>
+            <div class="text-button-div"><button class="text-button" id="uncover-button">Reveal Hidden</button></div><br>
+            <label for="revealed-message">Your Secret Message:</label><br>
+            <textarea id="revealed-message" disabled></textarea>
         </div>
+    </div>
 
-        <div class="stego-element" id="bts-section">
-            <div class="stego-logic magic">
-                <label for="bts">The private message hidden within the cover:</label><br>
-                <textarea id="bts" disabled="disabled"></textarea><br>
-                <button class="icon-button" id="reveal-button"><i class="fa fa-eye"></i></button>
-                <button class="icon-button" id="copy-button" onclick="doCopying()"><i class="fa fa-copy"></i></button>
-            </div>
-            <h1>Behind the Scenes</h1>
-            <div>
-                <button class="text-button clear-all" id="clear-button">Clear All Text Areas</button>
-            </div>
+    <div class="stego-element" id="bts-section">
+        <div class="stego-logic magic">
+            <label for="bts">The private message hidden within the cover:</label><br>
+            <textarea id="bts" disabled="disabled"></textarea><br>
+            <button class="icon-button" id="reveal-button"><i class="fa fa-eye"></i></button>
+            <button class="icon-button" id="copy-button" onclick="doCopying()"><i class="fa fa-copy"></i></button>
         </div>
+        <h1>Behind the Scenes</h1>
+        <div>
+            <button class="text-button clear-all" id="clear-button">Clear All Text Areas</button>
         </div>
-    </main>
+    </div>
     <script defer src="script.js"></script>
 </body>
 </html>
