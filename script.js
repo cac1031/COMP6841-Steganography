@@ -52,14 +52,14 @@ const conceal = (cover_message, secret_message) => {
     codepoints.push(encoded);
   }
   const binary_string = codepoints.join('');
-  const zwc_string = binary_string.replaceAll('0', '\u200b').replaceAll('1', '\u200c');
+  const zwc_string = binary_string.replaceAll('0', '\u200d').replaceAll('1', '\u200c');
   return shuffle_string(cover_message, zwc_string);
 }
 
 const reveal = (stego_message) => {
   let decoder = new TextDecoder();
-  const zwc_string = stego_message.replaceAll(/[^\u200b-\u200c]/g, '');
-  const binary_string = zwc_string.replaceAll('\u200b', '0').replaceAll('\u200c', '1');
+  const zwc_string = stego_message.replaceAll(/[^\u200c-\u200d]/g, '');
+  const binary_string = zwc_string.replaceAll('\u200d', '0').replaceAll('\u200c', '1');
   
   const block8_binaries = binary_string.match(/.{8}/g);
   
@@ -113,9 +113,9 @@ clearButton.addEventListener('click', () => {
 
 revealButton.addEventListener('click', () => {
   if (doReveal) {
-    btsTextArea.value = btsTextArea.value.replaceAll('\u200b', '<200b>').replaceAll('\u200c', '<200c>');
+    btsTextArea.value = btsTextArea.value.replaceAll('\u200d', '<200d>').replaceAll('\u200c', '<200c>');
   } else {
-    btsTextArea.value = btsTextArea.value.replaceAll('<200b>', '\u200b').replaceAll('<200c>', '\u200c');
+    btsTextArea.value = btsTextArea.value.replaceAll('<200d>', '\u200d').replaceAll('<200c>', '\u200c');
   }
   doReveal = !doReveal;
 });
