@@ -72,7 +72,7 @@ def do_embed(luminance_layer, secret_file_path):
 
     max_bits = max_bits_for_embedding(quantised_blocks)
     if len(secret_in_binary) > max_bits:
-        raise ValueError(f'Image not large enough to hide data. Only a maximum of {max_bits} bits can be encoded.')
+        raise ValueError(f'Image not large enough to hide data. Your file has {len(secret_in_binary)} bits but only a maximum of {max_bits} bits can be encoded.')
     
     index = 0
     embedded_blocks = []
