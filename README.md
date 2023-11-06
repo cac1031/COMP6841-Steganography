@@ -32,10 +32,3 @@ If the image path is valid, the program will produce a .dat file that contains o
 Note that if the .dat file is a png/jpg, we can simply rename the file, for example `extracted1.dat` to `extracted1.png` so we can view the secret image!
 
 There are folders containing sample cover images and sample secret files to utilise!
-
-<br>
-
-### Video Runthrough:
-
-
-
